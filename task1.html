@@ -8,12 +8,21 @@
 </head>
 <body>
     <div class="container">
-        <h3 class="title">我是标题</h3>
+        <h3 id="title" class="title">我是标题</h3>
+        <div id="underline"></div>        
         <button id="btn" class="btn">切换样式</button>
     </div>
 </body>
 <script>
     let btn = document.getElementById('btn')
+    let line = document.getElementById('underline')
+    btn.addEventListener('click', function() {    
+        if (line.className === 'on') {
+            line.className = 'off'
+        } else {
+            line.className = 'on'
+        }
+    })
 </script>
 <style>
     html {
@@ -28,7 +37,21 @@
     .title {
         font-size: .20rem;
         font-weight: normal;
+        margin-bottom: .04rem;
+    }
+    #underline {
+        height: 0.04rem;
+        background-color: #1f70ed;
         margin-bottom: .4rem;
+        width: 0;
+    }
+    #underline.on {
+        width: .8rem;
+        transition: width 0.6s;  
+    }
+    #underline.off {
+        width: 0;
+        transition: width 0.6s;        
     }
     .btn {
         border-radius: .03rem;
@@ -40,7 +63,8 @@
     } 
     .btn:active {
         background-color: #1f70ed;
-        color: #fff
+        color: #fff;
+        border: none;
     }
 </style>
 </html>
