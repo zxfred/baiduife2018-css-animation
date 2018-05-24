@@ -22,13 +22,6 @@
                 overflow: hidden;
             }
             /* ear */
-            .ear-wrap {
-                position: absolute;
-                width: 300px;
-                left: 50%;
-                margin-left: -150px;
-                /*   top: 100px; */
-            }
             .ear-wrap{
                 position: absolute;
                 left: 50%;
@@ -43,6 +36,7 @@
                 border: 2px solid #000;
                 background: #fbf8f1;
                 border-radius: 100% 10% 50% 0% ;
+                transition: transform .7s ease-in-out;                                
             }
             .ear-wrap .right {
                 left: auto;
@@ -85,6 +79,8 @@
                 background: #fff;
                 border-radius: 50% 50% 40% 40%;
                 box-sizing: border-box;
+                display: flex;
+                justify-content: center;
             }
             .eye-core {
                 height: 55px;
@@ -92,9 +88,9 @@
                 border-radius: 50% 50% 50% 50%;
                 /* margin: 0 auto; */
                 background: #000;
-                position: absolute;
-                left: 50%;
-                margin-left: -23px;
+                /* position: absolute;
+                left: 50%; */
+                transition: width 0.7s ease-in-out;                
             }
             .eye-bottom {
                 height: 50px;
@@ -162,6 +158,18 @@
                 right: 0;
             }
             /*鼠标hover样式 写在这里*/
+            .face:hover .eye-core {
+                width: 40px;
+                transition: width .7s ease-in-out;
+            }
+            .face:hover + .ear-wrap .ear.left {
+                transform: rotate(-20deg);
+                transition: transform .7s ease-in-out;                
+            }
+            .face:hover + .ear-wrap .ear.right {
+                transform: rotate(20deg);
+                transition: transform .7s ease-in-out;                
+            }
         </style>
     </head>
     <body>
