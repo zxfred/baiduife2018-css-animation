@@ -109,14 +109,15 @@
             .face-red {
                 position: absolute;
                 height: 20px;
-                width: 70px;
+                width: 50px;
                 background: red;
                 top: 45px;
-                /*top: 64px;*/
-                left: 18px;
+                left: 28px;
                 border-radius: 50% 50% 50% 50%;
                 background: #e85a5e;
                 opacity: 0.0;
+                transition: opacity .7s ease-in-out; 
+                transition-delay: 0.15s                               
             }
             /* 鼻子 */
             .nose {
@@ -148,6 +149,7 @@
                 margin-top: -26px;
                 position: absolute;
                 left: 0;
+                transition: border-radius .7s ease-in-out;                       
             }
             .mouth-wrap .right {
                 border-bottom: 4px solid #000;
@@ -164,11 +166,11 @@
                 transition: width .7s ease-in-out;
             }
             .face:hover + .ear-wrap .ear.left {
-                transform: rotate(-20deg);
+                transform: rotate(-25deg);
                 transition: transform .7s ease-in-out;                
             }
             .face:hover + .ear-wrap .ear.right {
-                transform: rotate(20deg);
+                transform: rotate(25deg);
                 transition: transform .7s ease-in-out;                
             }
             .face:hover .eye-bottom {
@@ -176,7 +178,17 @@
                 transition: transform .7s ease-in-out;
             }
             .face:hover .face-red {
-                
+                opacity: 0.7;
+                transition: opacity .7s ease-in-out;  
+                transition-delay: 0.15s                                                             
+            }
+            .face:hover .mouth-wrap .left {
+                border-radius: 0% 40% 80% 80%;
+                transition: border-radius .7s ease-in-out;                                                       
+            }
+            .face:hover .mouth-wrap .right {
+                border-radius: 0% 40% 80% 80%;
+                transition: border-radius .7s ease-in-out;       
             }
         </style>
     </head>
