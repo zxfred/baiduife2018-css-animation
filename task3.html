@@ -161,34 +161,42 @@
                 right: 0;
             }
             /*鼠标hover样式 写在这里*/
+            .face:hover .eye-core,
+            .face:hover + .ear-wrap .ear,
+            .face:hover .eye-bottom,
+            .face:hover .face-red,
+            .face:hover .mouth-wrap * {
+                transition-duration: .7s;
+                transition-timing-function: ease-in-out;
+            }
             .face:hover .eye-core {
                 width: 40px;
-                transition: width .7s ease-in-out;
+                transition-property: width;
             }
             .face:hover + .ear-wrap .ear.left {
                 transform: rotate(-25deg);
-                transition: transform .7s ease-in-out;                
+                transition-property: transform;                
             }
             .face:hover + .ear-wrap .ear.right {
                 transform: rotate(25deg);
-                transition: transform .7s ease-in-out;                
+                transition-property: transform;                
             }
             .face:hover .eye-bottom {
                 transform: translateY(-19px);
-                transition: transform .7s ease-in-out;
+                transition-property: transform;
             }
             .face:hover .face-red {
                 opacity: 0.7;
-                transition: opacity .7s ease-in-out;  
+                transition-property: opacity;  
                 transition-delay: 0.15s                                                             
             }
             .face:hover .mouth-wrap .left {
                 border-radius: 0% 40% 80% 80%;
-                transition: border-radius .7s ease-in-out;                                                       
+                transition-property: border-radius;                                                       
             }
             .face:hover .mouth-wrap .right {
                 border-radius: 0% 40% 80% 80%;
-                transition: border-radius .7s ease-in-out;       
+                transition-property: border-radius;       
             }
         </style>
     </head>
@@ -222,7 +230,6 @@
                 </div>
                 <!-- 嘴巴 -->
                 <div class="mouth-wrap">
-                    <!-- <div class="mouth-top"></div> -->
                     <div class="mouth left"></div>
                     <div class="mouth right"></div>
                 </div>
