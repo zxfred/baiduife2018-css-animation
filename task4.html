@@ -7,8 +7,10 @@
     <title>CSS Animation Task 4</title>
 </head>
 <body>
-    <img id="front" src="img/front.jpg" alt="正面">
-    <img id="back" src="img/back.jpg" alt="正面">
+    <div class="container">
+        <img id="front" src="img/front.jpg" alt="正面">
+        <img id="back" src="img/back.jpg" alt="反面">
+    </div>
 </body>
 <style>
     body {
@@ -17,13 +19,41 @@
         justify-content: center;
         align-items: center;
     }
+
     #front,
-    #back {
-        width: 300px;
-        height: auto;
+    #back,
+    .container {
+        width: 250px;
+        height: 350px;
     }
+
+    .container {
+        position: relative;
+        /* transform-style: preserve-3d; 打开后第一次会卡顿, 之后正常, 原因待研究 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 600px;
+    }
+
+    #front {
+        transition: transform .7s ease-in-out;  
+        backface-visibility: hidden; 
+    }
+
+    .container:hover #front{
+        transform: rotateY(180deg);
+    }
+
     #back {
+        transform: rotateY(-180deg);
         position: absolute;
+        transition: transform .7s ease-in-out;    
+        backface-visibility: hidden;      
+    }
+
+    .container:hover #back {
+        transform: rotateY(0deg);                        
     }
 </style>
 </html>
