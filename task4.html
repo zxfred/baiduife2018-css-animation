@@ -15,9 +15,15 @@
 <style>
     body {
         padding: 80px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
 
     #front,
@@ -29,31 +35,52 @@
 
     .container {
         position: relative;
-        /* transform-style: preserve-3d; 打开后第一次会卡顿, 之后正常, 原因待研究 */
+        /* transform-style: preserve-3d;  */
+        /* 打开页面后第一次 hover 会卡顿, 之后正常, 只存在于 Chrome, Safari正常, 原因待研究 */
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        perspective: 600px;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-perspective: 600px;
+                perspective: 600px;
     }
 
     #front {
-        transition: transform .7s ease-in-out;  
-        backface-visibility: hidden; 
+        -webkit-backface-visibility: hidden;
+                backface-visibility: hidden; 
+        -webkit-transition: transform .7s ease-in-out;
+        -webkit-transition: -webkit-transform .7s ease-in-out;
+        transition: -webkit-transform .7s ease-in-out;
+        transition: transform .7s ease-in-out;
+        transition: transform .7s ease-in-out, -webkit-transform .7s ease-in-out;
     }
 
     .container:hover #front{
-        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
     }
 
     #back {
-        transform: rotateY(-180deg);
+        -webkit-transform: rotateY(-180deg);
+                transform: rotateY(-180deg);
         position: absolute;
-        transition: transform .7s ease-in-out;    
-        backface-visibility: hidden;      
+        -webkit-transition: transform .7s ease-in-out;
+        -webkit-transition: -webkit-transform .7s ease-in-out;
+        transition: -webkit-transform .7s ease-in-out;
+        transition: transform .7s ease-in-out;
+        transition: transform .7s ease-in-out, -webkit-transform .7s ease-in-out;  
+        -webkit-backface-visibility: hidden;  
+                backface-visibility: hidden;      
     }
 
     .container:hover #back {
-        transform: rotateY(0deg);                        
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);                        
     }
 </style>
 </html>
