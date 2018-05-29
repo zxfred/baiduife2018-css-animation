@@ -5,11 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSS Animation Task 5</title>
-    <style>
-        
-    </style>
+<style>
+    *,
+    *:before,
+    *:after {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #000;
+    }
+
+    #wrapper {
+        padding-top: 5%;
+    }
+
+    .viewport {
+        perspective: 800px;
+        perspective-origin: 50% 200px;
+        transform: scale(0.8, 0.8);
+        -webkit-box-reflect: below 170px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0%, transparent), to(rgba(250, 250, 250, 0.1)));
+    }
+
+    .cube {
+        position: relative;
+        margin: 0 auto;
+        height: 200px;
+        width: 200px;
+        transform-style: preserve-3d;
+        /* transform: rotateX(136deg) rotateY(1122deg); */
+    }
+
+    .cube>div {
+        overflow: hidden;
+        position: absolute;
+        opacity: 0.9;
+        height: 200px;
+        width: 200px;
+        background-image: url("http://jordizle.com/static/img/blank.png");
+        -webkit-touch-callout: none; 
+        /* 在iOS上，当你触摸并按住触摸的目标，比如一个链接，Safari浏览器将显示链接有关的系统默认菜单。这个属性可以让你禁用系统默认菜单。 */
+        user-select: none;
+        /* 
+            none：文本不能被选择
+            text：可以选择文本
+            all：当所有内容作为一个整体时可以被选择。如果双击或者在上下文上点击子元素，那么被选择的部分将是以该子元素向上回溯的最高祖先元素。
+            element：可以选择文本，但选择范围受元素边界的约束
+        */
+    }
+
+    .cube>div>div.cube-image {
+        width: 200px;
+        height: 200px;
+        transform: rotate(180deg);
+        line-height: 200px;
+        font-size: 80px;
+        text-align: center;
+        color: #1b9bd8;
+        transition: color 600ms;
+    }
+
+    .cube>div>div.cube-image.active {
+        color: red;
+    }
+
+    .cube>div:hover {
+        cursor: pointer;
+    }
+
+    .cube>div:active {
+        cursor: pointer;
+    }
+
+    .cube>div:first-child {
+        /* transform: rotateX(90deg) translateZ(100px); */
+        outline: 1px solid transparent;
+    }
+
+    .cube>div:nth-child(2) {
+        transform: translateZ(100px);
+        outline: 1px solid transparent;
+    }
+
+    .cube>div:nth-child(3) {
+        transform: rotateY(90deg) translateZ(100px);
+        outline: 1px solid transparent;
+    }
+
+    .cube>div:nth-child(4) {
+        transform: rotateY(180deg) translateZ(100px);
+        outline: 1px solid transparent;
+    }
+
+    .cube>div:nth-child(5) {
+        transform: rotateY(-90deg) translateZ(100px);
+        outline: 1px solid transparent;
+    }
+
+    .cube>div:nth-child(6) {
+        transform: rotateX(-90deg) rotate(180deg) translateZ(100px);
+        outline: 1px solid transparent;
+    }
+
+    object {
+        opacity: 0.5;
+    }
+
+    object:hover {
+        opacity: 1;
+    }
+
+    @media (max-width: 640px) {
+        .viewport {
+            transform: scale(0.6, 0.6);
+        }
+    }
+</style>
 </head>
 <body>
-    
+    <div id="wrapper">
+        <div class="viewport">
+            <div class="cube">
+                <div class="side">
+                    <div class="cube-image">1</div>
+                </div>
+                <!-- <div class="side">
+                    <div class="cube-image">2</div>
+                </div>
+                <div class="side">
+                    <div class="cube-image">3</div>
+                </div>
+                <div class="side">
+                    <div class="cube-image">4</div>
+                </div>
+                <div class="side">
+                    <div class="cube-image">5</div>
+                </div>
+                <div class="side">
+                    <div class="cube-image active">6</div>
+                </div> -->
+            </div>
+        </div>
+    </div>
 </body>
 </html>
