@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSS Animation Task 6</title>
-    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="css/normalize.css">
     <style>
         .main-container {
             width: 100%;
@@ -28,51 +28,78 @@
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
-            display: none;
         }
 
-        /* 未选中时样式 */
-        .display .pic:nth-child(1) {
-            left: -500px;
+        /* 应用动画 */
+        .display .pic:target {
+            display: block;
+            z-index: 1;
         }
 
-        .display .pic:nth-child(2) {
-            top: 350px;
+        .display .pic:nth-child(1):target {
+            animation: left-in .5s ease-out;            
         }
 
-        .display .pic:nth-child(3) {
-            transform: scale(0.1, 0.1);
+        .display .pic:nth-child(2):target  {
+            animation: top-in .5s ease-out;          
         }
 
-        .display .pic:nth-child(4) {
-            transform: scale(2.0, 2.0);            
+        .display .pic:nth-child(3):target  {
+            animation: small-big 1s ease-in;  
         }
 
-        .display .pic:nth-child(5) {
-            transform: rotate(-360deg);
-            transform: scale(0.1, 0.1);
+        .display .pic:nth-child(4):target  {
+            animation: big-small 1s ease-out;                                            
         }
 
-        /* 选中时样式 */
-        .display .pic:nth-child(1) {
-            left: -500px;
+        .display .pic:nth-child(5):target  {
+            animation: scale-rotate .7s ease-in-out;                                                           
         }
 
-        .display .pic:nth-child(2) {
-            top: 350px;
+        /* 动画 */
+        @keyframes left-in {
+            0% { 
+                left: -500px;
+            }
+            100% {
+                left: 0; 
+            }
         }
 
-        .display .pic:nth-child(3) {
-            transform: scale(0.1, 0.1);
+        @keyframes top-in {
+            0% {
+                top: -350px;
+            }
+            100% {
+                top: 0; 
+            }
         }
 
-        .display .pic:nth-child(4) {
-            transform: scale(2.0, 2.0);            
+        @keyframes small-big {
+            0% {
+                transform: scale(.1, .1)
+            }
+            100% {
+                transform: scale(1, 1)
+            }
         }
 
-        .display .pic:nth-child(5) {
-            transform: rotate(-360deg);
-            transform: scale(0.1, 0.1);
+        @keyframes big-small {
+            0% {
+                transform: scale(2, 2)
+            }
+            100% {
+                transform: scale(1, 1)
+            }
+        }
+
+        @keyframes scale-rotate {
+            0% {
+                transform: rotate(-360deg) scale(.1, .1);         
+            }
+            100% {
+                transform: rotate(0deg) scale(1, 1);
+            }
         }
 
         /* 缩略图 */
@@ -83,6 +110,7 @@
             bottom: 2%;
             height: auto;
             box-sizing: border-box;
+            z-index: 2;
         }
 
         .thumbnail a {
@@ -127,7 +155,15 @@
             filter: brightness(1.1)
         }
 
+        /* 小屏 */
         @media (max-width: 640px) {
+            .display {
+                height: 40%;
+            }
+            .display .pic{
+                background-size: 100% auto;
+                background-position: center top;
+            }
             .thumbnail {
                 padding: 0;
                 bottom: 0;
@@ -149,18 +185,18 @@
 <body>
     <div class="main-container">
         <div class="display">
-            <div class="pic"></div>
-            <div class="pic"></div>
-            <div class="pic"></div>
-            <div class="pic"></div>
-            <div class="pic"></div>
+            <div class="pic" id="p1"></div>
+            <div class="pic" id="p2"></div>
+            <div class="pic" id="p3"></div>
+            <div class="pic" id="p4"></div>
+            <div class="pic" id="p5"></div>
         </div>
         <div class="thumbnail">
-            <a href="p1"></a>
-            <a href="p2"></a>
-            <a href="p3"></a>
-            <a href="p4"></a>
-            <a href="p5"></a>
+            <a href="#p1"></a>
+            <a href="#p2"></a>
+            <a href="#p3"></a>
+            <a href="#p4"></a>
+            <a href="#p5"></a>
         </div>
     </div>
 </body>
