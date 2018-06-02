@@ -27,32 +27,37 @@
             height: 100%;
             background-position: center center;
             background-size: cover;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat;          
         }
 
         /* 应用动画 */
         .display .pic:target {
             display: block;
+            z-index: 2;
+        }
+
+        /* 实在是没办法了, 可能不用 JS 不可能做出记忆上一个选择的图片的效果 */
+        .display .pic:nth-child(n):target + .pic:nth-child(n-1) {
             z-index: 1;
         }
 
-        .display .pic:nth-child(1):target {
+        #p1:target {
             animation: left-in .5s ease-out;            
         }
 
-        .display .pic:nth-child(2):target  {
+        #p2:target  {
             animation: top-in .5s ease-out;          
         }
 
-        .display .pic:nth-child(3):target  {
+        #p3:target  {
             animation: small-big 1s ease-in;  
         }
 
-        .display .pic:nth-child(4):target  {
+        #p4:target  {
             animation: big-small 1s ease-out;                                            
         }
 
-        .display .pic:nth-child(5):target  {
+        #p5:target  {
             animation: scale-rotate .7s ease-in-out;                                                           
         }
 
@@ -126,27 +131,27 @@
             filter: brightness(0.6);
         }
 
-        .display .pic:first-child,
+        #p1,
         .thumbnail a:first-child {
             background-image: url('img/task6/doctorstrange.jpg')
         }
 
-        .display .pic:nth-child(2),
+        #p2,
         .thumbnail a:nth-child(2) {
             background-image: url('img/task6/ironman.jpg')
         }
 
-        .display .pic:nth-child(3),
+        #p3,
         .thumbnail a:nth-child(3) {
             background-image: url('img/task6/scarletwitch.jpg')
         }
 
-        .display .pic:nth-child(4),
+        #p4,
         .thumbnail a:nth-child(4) {
             background-image: url('img/task6/thor.jpg')
         }
 
-        .display .pic:nth-child(5),
+        #p5,
         .thumbnail a:nth-child(5) {
             background-image: url('img/task6/captainamerica.jpg')
         }
@@ -185,11 +190,11 @@
 <body>
     <div class="main-container">
         <div class="display">
-            <div class="pic" id="p1"></div>
-            <div class="pic" id="p2"></div>
-            <div class="pic" id="p3"></div>
-            <div class="pic" id="p4"></div>
             <div class="pic" id="p5"></div>
+            <div class="pic" id="p4"></div>
+            <div class="pic" id="p3"></div>
+            <div class="pic" id="p2"></div>
+            <div class="pic" id="p1"></div>
         </div>
         <div class="thumbnail">
             <a href="#p1"></a>
