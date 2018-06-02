@@ -5,8 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSS Animation Task 6</title>
+    <style>
+        .main-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .display {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .thumbnail {
+            position: absolute;
+            padding: 0 10%;
+            width: 100%;
+            bottom: 0;
+            height: 20%;
+        }
+
+        .thumbnail a > img {
+            display: inline-block;
+            width: 20%;
+            margin-right: 2%;
+
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .thumbnail img:hover {
+
+        }
+
+    </style>
 </head>
 <body>
-    
+    <div class="main-container">
+        <div class="display"></div>
+        <div class="thumbnail">
+            <a href=""><img src="img/task6/doctorstrange.jpg" alt="Doctor Strange"></a>
+            <a href=""><img src="img/task6/captainamerica.jpg" alt="Captain America"></a>
+            <a href=""><img src="img/task6/ironman.jpg" alt="Iron Man"></a>
+            <a href=""><img src="img/task6/scarletwitch.jpg" alt="Scarlet Witch"></a>
+            <a href=""><img src="img/task6/thor.jpg" alt="Thor"></a>
+        </div>
+    </div>
 </body>
 </html>
