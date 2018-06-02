@@ -22,52 +22,78 @@
         }
 
         .display .pic {
-            position: absolute;            
+            position: absolute;
             width: 100%;
             height: 100%;
             background-position: center center;
             background-size: cover;
-            background-repeat: no-repeat;          
+            background-repeat: no-repeat;
         }
 
         /* 应用动画 */
+
         .display .pic:target {
             display: block;
             z-index: 2;
         }
 
         /* 实在是没办法了, 可能不用 JS 不可能做出记忆上一个选择的图片的效果 */
-        .display .pic:nth-child(n):target + .pic:nth-child(n-1) {
+
+        .display .pic:nth-child(n):target+.pic:nth-child(n-1) {
             z-index: 1;
         }
 
         #p1:target {
-            animation: left-in .5s ease-out;            
+            -webkit-animation: left-in .5s ease-out;
+            animation: left-in .5s ease-out;
         }
 
-        #p2:target  {
-            animation: top-in .5s ease-out;          
+        #p2:target {
+            -webkit-animation: top-in .5s ease-out;
+            animation: top-in .5s ease-out;
         }
 
-        #p3:target  {
-            animation: small-big 1s ease-in;  
+        #p3:target {
+            -webkit-animation: small-big 1s ease-in;
+            animation: small-big 1s ease-in;
         }
 
-        #p4:target  {
-            animation: big-small 1s ease-out;                                            
+        #p4:target {
+            -webkit-animation: big-small 1s ease-out;
+            animation: big-small 1s ease-out;
         }
 
-        #p5:target  {
-            animation: scale-rotate .7s ease-in-out;                                                           
+        #p5:target {
+            -webkit-animation: scale-rotate .7s ease-in-out;
+            animation: scale-rotate .7s ease-in-out;
         }
 
         /* 动画 */
-        @keyframes left-in {
-            0% { 
+
+        @-webkit-keyframes left-in {
+            0% {
                 left: -500px;
             }
             100% {
-                left: 0; 
+                left: 0;
+            }
+        }
+
+        @keyframes left-in {
+            0% {
+                left: -500px;
+            }
+            100% {
+                left: 0;
+            }
+        }
+
+        @-webkit-keyframes top-in {
+            0% {
+                top: -350px;
+            }
+            100% {
+                top: 0;
             }
         }
 
@@ -76,49 +102,91 @@
                 top: -350px;
             }
             100% {
-                top: 0; 
+                top: 0;
+            }
+        }
+
+        @-webkit-keyframes small-big {
+            0% {
+                -webkit-transform: scale(.1, .1);
+                transform: scale(.1, .1)
+            }
+            100% {
+                -webkit-transform: scale(1, 1);
+                transform: scale(1, 1)
             }
         }
 
         @keyframes small-big {
             0% {
+                -webkit-transform: scale(.1, .1);
                 transform: scale(.1, .1)
             }
             100% {
+                -webkit-transform: scale(1, 1);
+                transform: scale(1, 1)
+            }
+        }
+
+        @-webkit-keyframes big-small {
+            0% {
+                -webkit-transform: scale(2, 2);
+                transform: scale(2, 2)
+            }
+            100% {
+                -webkit-transform: scale(1, 1);
                 transform: scale(1, 1)
             }
         }
 
         @keyframes big-small {
             0% {
+                -webkit-transform: scale(2, 2);
                 transform: scale(2, 2)
             }
             100% {
+                -webkit-transform: scale(1, 1);
                 transform: scale(1, 1)
+            }
+        }
+
+        @-webkit-keyframes scale-rotate {
+            0% {
+                -webkit-transform: rotate(-360deg) scale(.1, .1);
+                transform: rotate(-360deg) scale(.1, .1);
+            }
+            100% {
+                -webkit-transform: rotate(0deg) scale(1, 1);
+                transform: rotate(0deg) scale(1, 1);
             }
         }
 
         @keyframes scale-rotate {
             0% {
-                transform: rotate(-360deg) scale(.1, .1);         
+                -webkit-transform: rotate(-360deg) scale(.1, .1);
+                transform: rotate(-360deg) scale(.1, .1);
             }
             100% {
+                -webkit-transform: rotate(0deg) scale(1, 1);
                 transform: rotate(0deg) scale(1, 1);
             }
         }
 
         /* 缩略图 */
+
         .thumbnail {
             position: absolute;
             padding: 0 8%;
             width: 100%;
             bottom: 2%;
             height: auto;
+            -webkit-box-sizing: border-box;
             box-sizing: border-box;
             z-index: 2;
         }
 
         .thumbnail a {
+            -webkit-box-sizing: border-box;
             box-sizing: border-box;
             display: block;
             float: left;
@@ -128,6 +196,7 @@
             background-position: center bottom;
             background-size: contain;
             background-repeat: no-repeat;
+            -webkit-filter: brightness(0.6);
             filter: brightness(0.6);
         }
 
@@ -157,15 +226,17 @@
         }
 
         .thumbnail a:hover {
+            -webkit-filter: brightness(1.1);
             filter: brightness(1.1)
         }
 
         /* 小屏 */
+
         @media (max-width: 640px) {
             .display {
                 height: 40%;
             }
-            .display .pic{
+            .display .pic {
                 background-size: 100% auto;
                 background-position: center top;
             }
@@ -174,11 +245,11 @@
                 bottom: 0;
                 height: 60%;
             }
-            .thumbnail a{
+            .thumbnail a {
                 height: 33.33%;
                 width: 50%;
                 margin: 0;
-                background-size: cover;                
+                background-size: cover;
             }
             .thumbnail a:nth-child(5) {
                 width: 100%;
