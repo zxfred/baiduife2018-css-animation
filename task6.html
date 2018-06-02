@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSS Animation Task 6</title>
+    <link rel="stylesheet" href="normalize.css">
     <style>
         .main-container {
             width: 100%;
             height: 100vh;
             position: relative;
+            min-width: 320px;
+            overflow: hidden;
         }
 
         .display {
@@ -18,36 +22,80 @@
         }
 
         .display .pic {
-            background-position: center center;
-            background-size: auto 100%;
-            background-repeat: no-repeat;
-        }        
-        
-        .thumbnail {
-            position: absolute;
-            padding: 0 8%;
-            width: 100%;
-            bottom: 2%;
-            height: 25%;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-        }
-
-        .thumbnail a {
-            box-sizing: border-box;
-            display: block;
-            margin-right: 1%;
+            position: absolute;            
             width: 100%;
             height: 100%;
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
-            filter: brightness(0.6)
+            display: none;
         }
 
-        .thumbnail a:last-child {
-            margin-right: 0;
+        /* 未选中时样式 */
+        .display .pic:nth-child(1) {
+            left: -500px;
+        }
+
+        .display .pic:nth-child(2) {
+            top: 350px;
+        }
+
+        .display .pic:nth-child(3) {
+            transform: scale(0.1, 0.1);
+        }
+
+        .display .pic:nth-child(4) {
+            transform: scale(2.0, 2.0);            
+        }
+
+        .display .pic:nth-child(5) {
+            transform: rotate(-360deg);
+            transform: scale(0.1, 0.1);
+        }
+
+        /* 选中时样式 */
+        .display .pic:nth-child(1) {
+            left: -500px;
+        }
+
+        .display .pic:nth-child(2) {
+            top: 350px;
+        }
+
+        .display .pic:nth-child(3) {
+            transform: scale(0.1, 0.1);
+        }
+
+        .display .pic:nth-child(4) {
+            transform: scale(2.0, 2.0);            
+        }
+
+        .display .pic:nth-child(5) {
+            transform: rotate(-360deg);
+            transform: scale(0.1, 0.1);
+        }
+
+        /* 缩略图 */
+        .thumbnail {
+            position: absolute;
+            padding: 0 8%;
+            width: 100%;
+            bottom: 2%;
+            height: auto;
+            box-sizing: border-box;
+        }
+
+        .thumbnail a {
+            box-sizing: border-box;
+            display: block;
+            float: left;
+            margin: 0 1%;
+            width: 18%;
+            height: calc(18.75vh);
+            background-position: center bottom;
+            background-size: contain;
+            background-repeat: no-repeat;
+            filter: brightness(0.6);
         }
 
         .display .pic:first-child,
@@ -67,7 +115,7 @@
 
         .display .pic:nth-child(4),
         .thumbnail a:nth-child(4) {
-            background-image: url('img/task6/thor.jpg')  
+            background-image: url('img/task6/thor.jpg')
         }
 
         .display .pic:nth-child(5),
@@ -79,8 +127,25 @@
             filter: brightness(1.1)
         }
 
+        @media (max-width: 640px) {
+            .thumbnail {
+                padding: 0;
+                bottom: 0;
+                height: 60%;
+            }
+            .thumbnail a{
+                height: 33.33%;
+                width: 50%;
+                margin: 0;
+                background-size: cover;                
+            }
+            .thumbnail a:nth-child(5) {
+                width: 100%;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="main-container">
         <div class="display">
@@ -99,4 +164,5 @@
         </div>
     </div>
 </body>
+
 </html>
