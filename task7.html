@@ -88,11 +88,6 @@
             color: #444;
         }
 
-        .form__input:focus + .form__label span {
-            position: relative;
-            top: -20px;
-        }
-
         .form__label {
             position: absolute;
             bottom: 0;
@@ -107,10 +102,16 @@
 
         .form__label__content {
             position: absolute;
+            top: 0;
+            transition: top .15s ease-in;            
         }
 
-        .form__input:focus~.form__label .form__label-content,
-        .form--filled .form__label-content {}
+        .form__input:focus~.form__label .form__label__content,
+        .form--filled .form__label__content {
+            font-size: 1.4rem;
+            top: -1.2rem;
+            transition: top .15s ease-in;
+        }
 
         .btn {
             width: 100%;
@@ -165,19 +166,10 @@
 
 <script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
 <script>
-   
 
-    // $(function() {
-    //     $('#email-label').addClass('animated slideOutUp infinite');
-    //     setTimeout(function() {
-    //         $('#email-label').removeClass('animated slideOutUp infinite');
-    //     }, 500);
-    // });
-
-    // $('#email-label').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-
-    // });
-
+    $('.form__input').change(function() {
+        $('.form__input').addClass('form--filled');
+    });
 </script>
 
 </html>
