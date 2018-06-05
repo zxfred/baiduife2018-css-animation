@@ -88,6 +88,11 @@
             color: #444;
         }
 
+        .form__input:focus + .form__label span {
+            position: relative;
+            top: -20px;
+        }
+
         .form__label {
             position: absolute;
             bottom: 0;
@@ -158,43 +163,21 @@
     </section>
 </body>
 
-<script>
-
-    $('#email-label').addClass('animated slideOutUp infinite');
-
-    // $.fn.extend({
-    //     animateCss: function (animationName, callback) {
-    //         var animationEnd = (function (el) {
-    //             var animations = {
-    //                 animation: 'animationend',
-    //                 OAnimation: 'oAnimationEnd',
-    //                 MozAnimation: 'mozAnimationEnd',
-    //                 WebkitAnimation: 'webkitAnimationEnd',
-    //             };
-
-    //             for (var t in animations) {
-    //                 if (el.style[t] !== undefined) {
-    //                     return animations[t];
-    //                 }
-    //             }
-    //         })(document.createElement('div'));
-
-    //         this.addClass('animated ' + animationName).one(animationEnd, function () {
-    //             $(this).removeClass('animated ' + animationName);
-
-    //             if (typeof callback === 'function') callback();
-    //         });
-
-    //         return this;
-    //     },
-    // });
-
-    // $('#yourElement').animateCss('bounce');
-    
-    // $('#yourElement').animateCss('bounce', function () {
-    //     // Do somthing after animation
-    // });
-</script>
 <script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+<script>
+   
+
+    // $(function() {
+    //     $('#email-label').addClass('animated slideOutUp infinite');
+    //     setTimeout(function() {
+    //         $('#email-label').removeClass('animated slideOutUp infinite');
+    //     }, 500);
+    // });
+
+    // $('#email-label').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+
+    // });
+
+</script>
 
 </html>
