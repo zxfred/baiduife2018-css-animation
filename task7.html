@@ -50,6 +50,7 @@
             position: relative;
             overflow: hidden;
             background-color: white;
+            -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.24), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.24), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
             border-radius: 2px;
             padding: 1em 1.5em;
@@ -75,6 +76,7 @@
             margin-top: 1em;
             padding: 0.84em 0;
             width: 100%;
+            -webkit-box-sizing: border-box;
             box-sizing: border-box;
             color: #444;
             font-size: 1.6rem;
@@ -103,13 +105,15 @@
         .form__label__content {
             position: absolute;
             top: 0;
-            transition: top .15s ease-out;            
+            -webkit-transition: top .15s ease-out;
+            transition: top .15s ease-out;
         }
 
         .form__input:focus~.form__label .form__label__content,
         .form--filled .form__label__content {
             font-size: 1.4rem;
             top: -1.2rem;
+            -webkit-transition: top .15s ease-in;
             transition: top .15s ease-in;
         }
 
@@ -126,7 +130,9 @@
             font-family: inherit;
             font-weight: 400;
             font-size: 1.6rem;
+            -webkit-box-shadow: 0 1px 3px 0 rgba(3, 30, 51, 0.24), 0 1px 2px 0 rgba(3, 30, 51, 0.12);
             box-shadow: 0 1px 3px 0 rgba(3, 30, 51, 0.24), 0 1px 2px 0 rgba(3, 30, 51, 0.12);
+            -webkit-transition: all 0.2s ease;
             transition: all 0.2s ease;
         }
 
@@ -166,9 +172,8 @@
 
 <script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
 <script>
-
-    $('.form__input').change(function() { // 检测 input 修改  
-        for(let i = 0; i < $('.form__input').length; i++){
+    $('.form__input').change(function () { // 检测 input 修改  
+        for (let i = 0; i < $('.form__input').length; i++) {
             if ($.trim($('.form__input').eq(i).val())) { // 如果有内容
                 $('.form__label').eq(i).addClass('form--filled') // 添加 class
             } else {
@@ -176,15 +181,12 @@
             }
         }
 
-        if ( $.trim($('.form__input').eq(0).val()) && $.trim($('.form__input').eq(1).val()) ) { // 当两个input都不为空
+        if ($.trim($('.form__input').eq(0).val()) && $.trim($('.form__input').eq(1).val())) { // 当两个input都不为空
             $('.form__wrapper__submit').addClass('animated') // 添加动画
         } else {
             $('.form__wrapper__submit').removeClass('animated') // 反之取消动画    
         }
     });
-
-
-
 </script>
 
 </html>
